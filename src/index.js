@@ -6,6 +6,7 @@ const port = process.env.PORT || 4567;
 const userRoute = require("./routes/userRoute");
 const playlistRoute = require("./routes/playlistRoute");
 const pisteRoute = require("./routes/pisteRoute");
+const albumRoute = require("./routes/albumRoute");
 main().catch((err) => console.log(err));
 
 async function main() {
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use("api/v1/users", userRoute);
 app.use("api/v1/playlists", playlistRoute);
 app.use("api/v1/pistes", pisteRoute);
+app.use("api/v1/albums", albumRoute);
 
 app.listen(port, () => {
   console.log(`SERVER is running on port ${port}`);
