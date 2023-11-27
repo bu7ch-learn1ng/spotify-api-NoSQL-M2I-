@@ -1,3 +1,4 @@
+const Piste = require("../models/pisteModel");
 const newPiste = async (req, res) => {
   try {
     const newPiste = new Piste(req.body);
@@ -7,5 +8,13 @@ const newPiste = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+const allPistes = async (req, res) => {
+  try {
+    let allpistes = await Piste.find();
+    res.json(allpistes);
+  } catch (error) {
+    console.error({ message: error.message });
+  }
+};
 
-module.exports = { newPiste };
+module.exports = { newPiste, allPistes };

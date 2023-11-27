@@ -10,6 +10,6 @@ const router = require("express").Router();
 router.get("/", allAlbums);
 router.post("/new", postAlbum);
 router.put("/:id/edit", putAlbum);
-router.delte("/:id/destroy", removeAlbum);
+router.delete("/:id/destroy", removeAlbum);
 
 module.exports = router;

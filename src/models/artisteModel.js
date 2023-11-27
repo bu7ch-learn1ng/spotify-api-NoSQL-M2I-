@@ -5,4 +5,5 @@ const artisteSchema = new mongoose.Schema({
   Albums: [{ type: mongoose.Schema.Types.ObjectId, ref: "Album" }],
 });
 
-module.exports = mongoose.model("Artiste", artisteSchema);
+const Artiste = mongoose.model("Artiste", artisteSchema);
+module.exports = Artiste;
