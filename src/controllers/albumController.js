@@ -18,15 +18,16 @@ const postAlbum = async (req, res) => {
 };
 const putAlbum = async (req, res) => {
   try {
-    let album = await Album.findOneAndUpdate({_id: req.params.id}, req.body)
-    res.json(album)
+    const album = await Album.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.json(album);
   } catch (error) {
     console.error({message: error.message})
   }
 };
 const removeAlbum = async (req, res) => {
   try {
-    await Album.findOneAndDelete({_id:req.params.id})
+    const album = await Album.findByIdAndDelete(req.params.id);
+    res.json({ message: 'Album supprimé avec succès', deletedAlbum: album });
   } catch (error) {
     console.error({message: error.message})
   }
